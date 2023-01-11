@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
+import React from "react";
+import { assetMap, assets } from "../helper/assets";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -10,16 +12,15 @@ const Home: NextPage = () => {
         <p>Trending Assets</p>
       </span>
       <div className={styles.cards}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {React.Children.toArray(assets.map((asset) => <Card asset={asset} />))}
       </div>
     </div>
   );
 };
 
-function Card() {
+function Card({ asset }: any) {
+  const { symbol, name, price, tvl, pairs, change } = asset;
+
   return (
     <div className={styles.card}>
       <img
@@ -28,26 +29,43 @@ function Card() {
         alt=""
       />
 
-      <div className={styles.icon}>
-        <img src="https://i.imgur.com/CJJ9386.png" alt="" />
+      <div
+        style={{
+          background: `linear-gradient(180deg,rgba(98, 106, 136, 0.1) 0%,${assetMap[symbol].gradient} 100%)`,
+        }}
+        className={styles.icon}
+      >
+        <img src={assetMap[symbol].image} alt={assetMap[symbol].name} />
       </div>
 
       <div className={styles.cardContent}>
-        <p id={styles.token}>Bitcoin (BTC)</p>
+        <p id={styles.token}>
+          {name} ({symbol})
+        </p>
         <span className={styles.value}>
-          <p>$31,812.80</p>
-          <p id={styles.change}>+10%</p>
+          <p>{price}</p>
+          <p
+            style={{
+              color: change > 0 ? "#00ffa3" : "#FF4D4D",
+            }}
+            id={styles.change}
+          >
+            {change > 0 ? "+" : ""}
+            {change}%
+          </p>
         </span>
         <p className={styles.label}>Price</p>
         <span className={styles.value}>
-          <p>$60,000</p>
+          <p>{tvl}</p>
         </span>
         <p className={styles.label}>TVL</p>
 
         <span className={`${styles.value} ${styles.pairs}`}>
-          <img src="https://i.imgur.com/lD26QGS.png" alt="" />
-          <img src="https://i.imgur.com/nZsxBIV.png" alt="" />
-          <img src="https://i.imgur.com/LRTPROz.png" alt="" />
+          {React.Children.toArray(
+            pairs.map((pair: any) => (
+              <img src={assetMap[pair].image} alt={assetMap[pair].symbol} />
+            ))
+          )}
         </span>
         <p className={styles.label}>Popular pairs</p>
       </div>

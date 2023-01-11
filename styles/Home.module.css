@@ -27,7 +27,7 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .card {
@@ -101,7 +101,6 @@
   right: 24px;
   top: 50%;
   translate: 0 -50%;
-  color: #00ffa3;
   font-size: 12px;
 }
 
