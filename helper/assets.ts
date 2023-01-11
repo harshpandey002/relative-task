@@ -1,4 +1,13 @@
-export const assets = [
+export type assetType = {
+  symbol: string;
+  name: string;
+  price: string;
+  change: number;
+  tvl: string;
+  pairs: string[];
+};
+
+export const assets: Array<assetType> = [
   {
     symbol: "BTC",
     name: "Bitcoin",
@@ -10,7 +19,7 @@ export const assets = [
   {
     symbol: "SOL",
     name: "Solana",
-    price: "$31,812.8",
+    price: "$32.83",
     change: -12.32,
     tvl: "$60,000",
     pairs: ["BTC", "ETH", "BUSD"],
@@ -33,7 +42,7 @@ export const assets = [
   },
 ];
 
-export const assetMap = {
+export const assetMap: any = {
   BTC: {
     symbol: "BTC",
     name: "Bitcoin",

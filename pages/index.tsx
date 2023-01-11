@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import React from "react";
-import { assetMap, assets } from "../helper/assets";
+import { assetMap, assets, assetType } from "../helper/assets";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -12,13 +12,15 @@ const Home: NextPage = () => {
         <p>Trending Assets</p>
       </span>
       <div className={styles.cards}>
-        {React.Children.toArray(assets.map((asset) => <Card asset={asset} />))}
+        {React.Children.toArray(
+          assets.map((asset: assetType) => <Card asset={asset} />)
+        )}
       </div>
     </div>
   );
 };
 
-function Card({ asset }: any) {
+function Card({ asset }: { asset: assetType }) {
   const { symbol, name, price, tvl, pairs, change } = asset;
 
   return (
@@ -62,7 +64,7 @@ function Card({ asset }: any) {
 
         <span className={`${styles.value} ${styles.pairs}`}>
           {React.Children.toArray(
-            pairs.map((pair: any) => (
+            pairs.map((pair: string) => (
               <img src={assetMap[pair].image} alt={assetMap[pair].symbol} />
             ))
           )}
