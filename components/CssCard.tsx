@@ -8,19 +8,15 @@ export default function CssCard({ asset }: { asset: assetType }) {
 
   return (
     <div className={styles.card}>
-      <img
-        className={styles.cardImage}
-        src="https://i.imgur.com/clW2k6S.png"
-        alt=""
-      />
-
-      <div
-        style={{
-          background: `linear-gradient(180deg,rgba(98, 106, 136, 0.1) 0%,${assetMap[symbol].gradient} 100%)`,
-        }}
-        className={styles.icon}
-      >
-        <img src={assetMap[symbol].image} alt={assetMap[symbol].name} />
+      <div className={styles.curves}>
+        <div
+          style={{
+            background: `linear-gradient(180deg,rgba(98, 106, 136, 0.1) 0%,${assetMap[symbol].gradient} 100%)`,
+          }}
+          className={styles.icon}
+        >
+          <img src={assetMap[symbol].image} alt={assetMap[symbol].name} />
+        </div>
       </div>
 
       <div className={styles.cardContent}>
