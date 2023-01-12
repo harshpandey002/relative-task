@@ -11,7 +11,7 @@ export default function CssCard({ asset }: { asset: assetType }) {
       <div className={styles.curves}>
         <div
           style={{
-            background: `linear-gradient(180deg,rgba(98, 106, 136, 0.1) 0%,${assetMap[symbol].gradient} 100%)`,
+            background: `linear-gradient(180deg, #1c2034 0%,${assetMap[symbol].gradient} 100%)`,
           }}
           className={styles.icon}
         >

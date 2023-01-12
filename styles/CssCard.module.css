@@ -9,6 +9,7 @@
     rgba(28, 32, 53, 1) 100%
   );
   border-radius: 16px;
+  border-top: 1px solid #313449;
 }
 
 .curves {
@@ -18,26 +19,36 @@
   height: 60px;
   border-radius: 0 0 60px 60px;
   background-color: #14172b;
+  border: 1px solid #313449;
+  border-top: none;
 }
 
 .curves::before {
   content: "";
   position: absolute;
-  left: -35px;
+  top: -1px;
+  left: -36px;
   width: 40px;
   height: 25px;
-  border-radius: 0% 100% 100% 0% / 0% 100% 0% 100%;
+  border-top-right-radius: 100%;
   box-shadow: 11px -10px 0 10px #14172b;
+  border-top: 1px solid #313449;
+  border-right: 1px solid #313449;
+  z-index: 1;
 }
 
 .curves::after {
   content: "";
   position: absolute;
-  right: -35px;
+  top: -1px;
+  right: -36px;
   width: 40px;
   height: 25px;
-  border-radius: 100% 0% 100% 0% / 100% 100% 0% 0%;
-  box-shadow: -2px -10px 0 2px #14172b;
+  border-top-left-radius: 100%;
+  box-shadow: -11px -10px 0 10px #14172b;
+  border-top: 1px solid #313449;
+  border-left: 1px solid #313449;
+  z-index: 1;
 }
 
 .icon {
@@ -52,11 +63,7 @@
   align-items: center;
   justify-content: center;
   border-top: 1px solid #a1a1a13f;
-  background: linear-gradient(
-    180deg,
-    rgba(98, 106, 136, 0.1) 0%,
-    rgba(234, 179, 0, 0.06) 100%
-  );
+  z-index: 2;
 }
 
 .icon img {
