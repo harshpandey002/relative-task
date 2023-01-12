@@ -10,9 +10,18 @@ html,
 body {
   font-family: "Tomorrow", sans-serif;
   min-height: 100vh;
+  overflow: overlay;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(77, 20, 164);
 }
